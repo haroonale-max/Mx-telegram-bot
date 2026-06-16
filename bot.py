@@ -75,7 +75,7 @@ async def handle_updates():
 
 async def main():
     print("MX Bot starting...")
-    await send_startup()
+
     scheduler = AsyncIOScheduler(timezone=PST)
     scheduler.add_job(send_620_alert, "cron", hour=6, minute=20)
     scheduler.start()
