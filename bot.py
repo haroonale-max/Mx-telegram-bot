@@ -95,7 +95,8 @@ async def check_gold_signals():
         print(f"Gold {label} — RSI: {rsi} | MACD: {macd} | Signal: {signal} | Hist: {hist}")
 
         # --- RSI Alert ---
-        if rsi <= 35 and not rsi_alert_sent[tf]:
+        if rsi <= 35 and hist and hist > 0 and not rsi_alert_sent[tf]:
+
             rsi_zone = "🟢 STRONG BUY ZONE" if rsi <= 30 else "🟡 Watch Zone"
             macd_status = "✅ MACD Bullish Cross!" if hist and hist > 0 else "⚠️ MACD not confirmed yet"
             confluence = "🔥 HIGH CONFLUENCE SIGNAL!" if (rsi <= 35 and hist and hist > 0) else "⏳ Wait for MACD confirmation"
